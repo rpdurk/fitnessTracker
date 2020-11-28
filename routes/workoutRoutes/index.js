@@ -1,15 +1,53 @@
+// const workoutRoutes = require('.')
 const router = require('express').Router();
-router.post('/')
+const Workout = require('../../models/workout');
 
 
-// const API = require('../../public/api');
 
-// router.route('/')
-//     .get(API.getLastWorkout)
-//     .post(API.createWorkout);
-// router.route('/:id')
-// .post(API.addExercise);
-// router.route('/range')
-// .get(API.getWorkoutsInRange);
+// get last workout
+router.get('/', (req, res) => {
+    Workout.find({})
+    .sort({ date: -1 })
+    .then((lastWorkout) => {
+        res.json(lastWorkout);
+    })
+    .catch((err) => {
+        res.status(400).json(err);
+    });
+});
+
+// addExercise
+router.post('/:id', ({ body }, res) => {
+    Workout.create(body)
+    .then((newExercise) => {
+        res.json(newExercise);
+    })
+    .catch((err) => {
+        res.status(400).json(err);
+    });
+});
+
+// create a workout
+router.post('/', ({ body }, res) => {
+    Workout.create(body)
+    .then((newWorkout) => {
+        res.json(newWorkout);
+    })
+    .catch((err) => {
+        res.status(400).json(err);
+    });
+});
+
+// get workouts within range
+router.get('/range', (req, res) => {
+    Workout.find({})
+    .sort({ date: -1 })
+    .then((specificWorkout) => {
+        res.json(specificWorkout);
+    })
+    .catch((err) => {
+        res.status(400).json(err);
+    });
+});
 
 module.exports = router;

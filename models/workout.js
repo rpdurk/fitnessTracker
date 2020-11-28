@@ -41,7 +41,7 @@ const workoutSchema = new Schema(
   ]
   }
 )
-const Workout = model('workout', workoutSchema);
+const Workout = mongoose.model('workout', workoutSchema);
 
 module.exports = Workout;
 // example of what would be inserted into database
