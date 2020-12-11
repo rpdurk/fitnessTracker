@@ -14,22 +14,16 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// allows access to public folder.
 app.use(express.static('public'));
 
 connectDB();
 
-// if (process.env.NODE_ENV === 'production') {
-  app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/index.html'));
-  });
-  app.get('/exercise', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/exercise.html'));
-  });
-  app.get('/stats', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/stats.html'));
-  });
-// };
+// routes
+app.use(require("./routes/workoutRoutes.js"));
+app.use(require("./routes/viewRoutes.js"));
 
 app.listen(PORT, () => {
-  console.log('Server started listening on PORT http://localhost:3001');
+  console.log(`Server started listening on PORT- ${PORT}`);
 });

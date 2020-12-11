@@ -44,30 +44,3 @@ const workoutSchema = new Schema(
 const Workout = mongoose.model('workout', workoutSchema);
 
 module.exports = Workout;
-// example of what would be inserted into database
-// let workoutSeed = [
-//   {
-//     day: new Date().setDate(new Date().getDate()-10),
-//     exercises: [
-//       {
-//         type: "resistance",
-//         name: "Bicep Curl",
-//         duration: 20,
-//         weight: 100,
-//         reps: 10,
-//         sets: 4
-//       }
-//     ]
-//   },
-//   {
-//     day: new Date().setDate(new Date().getDate()-7),
-//     exercises: [
-//       {
-//         type: "cardio",
-//         name: "Running",
-//         duration: 25,
-//         distance: 4
-//       }
-//     ]
-//   }
-// ];
