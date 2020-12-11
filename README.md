@@ -45,10 +45,10 @@ Visit the live website at [Here](https://calm-garden-02997.herokuapp.com/)
 The primary purpose of this project is to log and track your exercise
 
 1. Add Exercise
-    ![Add Exercise]()
+    ![Add Exercise](./Images/AddExercise.png)
 
 2. See Stats
-    ![Stats]()
+    ![Stats](./Images/Stats.png)
 
 
 ## Contributing
